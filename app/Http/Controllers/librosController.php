@@ -10,6 +10,10 @@ class librosController extends Controller
 {
     public function filtrarLibros(Request $request)
     {
+        // Agregar campos requeridos
+        $request->validate([
+            "filtrado" => "required"
+        ]);
         if ($request->opcionFiltro == "titulo") {
             $texto = "%" . $request->filtrado . "%";
             return view("inicio")->with("libros", libros::where("titulo", "like", $texto)->paginate(25));
@@ -35,6 +39,10 @@ class librosController extends Controller
 
     public function filtrarLibrosPrestamos(Request $request)
     {
+        // Agregar campos requeridos
+        $request->validate([
+            "filtrado" => "required"
+        ]);
         if ($request->opcionFiltro == "ISBN") {
             $texto = "%" . $request->filtrado . "%";
             return view("listadoprestamos")->with("prestamos", prestamos::where("ISBN", "like", $texto)->paginate(25));
