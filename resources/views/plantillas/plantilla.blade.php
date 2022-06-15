@@ -35,7 +35,7 @@
                             Devolución de libros
                         </li>
                     </a>
-                    <a href="{{route("inicio")}}">
+                    <a href="{{route("formularioPrestamos")}}">
                         <li class="border-r-2 border-l-2 border-b-2 border-emerald-500 py-4 text-center hover:bg-emerald-500 hover:text-white">
                             Prestamo de libros
                         </li>

@@ -13,4 +13,9 @@ class prestamosController extends Controller
         $listado = prestamos::where("estado", 1)->paginate(25);
         return view("listadoprestamos")->with("prestamos", $listado);
     }
+
+    public function formularioPrestamos()
+    {
+        return view("formularioprestamos");
+    }
 }
