@@ -23,3 +23,5 @@ Route::get("/prestamos", [prestamosController::class, "listarPrestamos"])->name(
 Route::post("/devolverLibro/{libros}", [librosController::class, "devolverLibro"])->name("devolverLibro");
 
 Route::post("/prestamos", [librosController::class, "filtrarLibrosPrestamos"])->name("filtrarLibrosPrestamos");
+
+Route::get("/logout", [login::class, "logout"])->name("logout");

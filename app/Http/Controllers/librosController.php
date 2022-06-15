@@ -27,6 +27,9 @@ class librosController extends Controller
         $prestamo = prestamos::all()->where("id", $id)->first();
         $prestamo->estado = 0;
         $prestamo->save();
+        $libro = libros::all()->where("ISBN", "=", $prestamo->ISBN)->first();
+        $libro->stock = $libro->stock + 1;
+        $libro->save();
         return redirect(route("listarPrestamos"));
     }
 

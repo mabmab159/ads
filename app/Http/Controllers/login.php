@@ -19,4 +19,11 @@ class login extends Controller
             return redirect(route("inicio"))->with("libros", libros::paginate(25));
         }
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        return redirect("/");
+    }
 }

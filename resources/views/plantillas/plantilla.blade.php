@@ -53,7 +53,7 @@
                         </li>
                     </a>
                 @endif
-                <a href="">
+                <a href="{{route("logout")}}">
                     <li class=" border-r-2 border-l-2 border-b-2 border-emerald-500 py-4 text-center hover:bg-emerald-500
                    hover:text-white">
                         Salir
