@@ -2,10 +2,9 @@
 
 use App\Http\Controllers\librosController;
 use App\Http\Controllers\login;
+use App\Http\Controllers\prestamosController;
 use App\Models\libros;
-use http\Env\Request;
 use Illuminate\Support\Facades\Route;
-
 
 Route::get('/', function () {
     return view('login');
@@ -19,5 +18,8 @@ Route::get("/inicio", function () {
 
 Route::post("/inicio", [librosController::class, "filtrarLibros"])->name("filtrarLibros");
 
+Route::get("/prestamos", [prestamosController::class, "listarPrestamos"])->name("listarPrestamos");
 
-Route::get("/prestamos", [\App\Http\Controllers\prestamosController::class, "listarPrestamos"])->name("listarPrestamos");
+Route::post("/devolverLibro/{libros}", [librosController::class, "devolverLibro"])->name("devolverLibro");
+
+Route::post("/prestamos", [librosController::class, "filtrarLibrosPrestamos"])->name("filtrarLibrosPrestamos");

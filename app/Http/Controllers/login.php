@@ -16,7 +16,7 @@ class login extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return view("inicio")->with("librosController", libros::paginate(25));
+            return redirect(route("inicio"))->with("libros", libros::paginate(25));
         }
     }
 }

@@ -30,7 +30,7 @@
                     </li>
                 </a>
                 @if(auth()->user()->cargo=="recepcionista")
-                    <a href="{{route("inicio")}}">
+                    <a href="{{route("listarPrestamos")}}">
                         <li class="border-r-2 border-l-2 border-b-2 border-emerald-500 py-4 text-center hover:bg-emerald-500 hover:text-white">
                             Devolución de libros
                         </li>

@@ -17,7 +17,7 @@ class estudiantesFactory extends Factory
     public function definition()
     {
         return [
-            "codigo_estudiante" => $this->faker->unique()->numberBetween(10000, 99999),
+            "codigo_estudiante" => $this->faker->unique()->numberBetween(10000, 10100),
             "nombre" => $this->faker->name,
             "carrera" => $this->faker->randomElement(["Ing. sistemas", "Administracion", "Ing. ambiental", "Ing. electronica", "Ing. mecanica"]),
         ];

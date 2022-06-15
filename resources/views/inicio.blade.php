@@ -16,6 +16,9 @@
                 </button>
             </form>
         </div>
+        <div class="my-4">
+            {{$libros->links()}}
+        </div>
         <table class="border-collapse border border-slate-500 w-full text-center">
             <thead>
             <tr class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white">
@@ -44,6 +47,5 @@
             @endforeach
             </tbody>
         </table>
-        {{ $libros->links() }}
     </div>
 @endsection

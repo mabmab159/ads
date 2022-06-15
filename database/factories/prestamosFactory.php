@@ -17,8 +17,8 @@ class prestamosFactory extends Factory
     public function definition()
     {
         return [
-            "ISBN" => $this->faker->numberBetween(10000, 99999),
-            "codigo_estudiante" => $this->faker->numberBetween(10000, 99999),
+            "ISBN" => $this->faker->numberBetween(10000, 10100),
+            "codigo_estudiante" => $this->faker->numberBetween(10000, 10100),
             "estado" => $this->faker->randomElement([0, 1]),
         ];
     }

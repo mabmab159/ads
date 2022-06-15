@@ -18,7 +18,7 @@ class librosFactory extends Factory
     {
         return [
             "titulo" => $this->faker->name,
-            "ISBN" => $this->faker->unique()->numberBetween(10000, 99999),
+            "ISBN" => $this->faker->unique()->numberBetween(10000, 10100),
             "autor" => $this->faker->name,
             "ano_publicacion" => $this->faker->year,
             "editorial" => $this->faker->randomElement(["ANAYA MULTIMEDIA",
