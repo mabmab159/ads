@@ -5,7 +5,7 @@
             @csrf
             <div class="flex">
                 <input type="number" class="w-full border-b-2 border-b-emerald-500" name="ISBN"
-                       placeholder="Ingrese el ISBN del libro a registrar" min="1">
+                       placeholder="Ingrese el ISBN del libro a eliminar" min="1">
                 @error("ISBN")
                 <span class="text-red-500">El campo es obligatorio</span>
                 @enderror
@@ -16,7 +16,8 @@
             </div>
         </form>
         <br>
-        <form method="POST" action="{{route("registrarLibro")}}">
+        <form method="POST" action="{{route("eliminarLibro")}}"
+              onsubmit="return confirm('Esta seguro de eliminar las copias')">
             @csrf
             <label class="p-3 text-zinc-600">ISBN</label>
             <div class="flex py-4">
@@ -98,10 +99,21 @@
             </div>
             <label class="p-3 text-zinc-600">Stock</label>
             <div class="flex py-4">
-                <input type="number" class="w-full border-b-2 border-b-emerald-500" name="stock" min="1">
-                @error("stock")
-                <span class="text-red-500">El campo es obligatorio</span>
-                @enderror
+                @if(is_null($libro))
+                    <select name="stock" class="js-example-basic-multiple ml-4 w-full border-b-2 border-b-emerald-500">
+                        <option value="0">0</option>
+                    </select>
+                @else
+                    <select name="stock" class="js-example-basic-multiple ml-4 w-full border-b-2 border-b-emerald-500">
+                        @for($i=$libro->stock;$i>=0;$i--)
+                            @if($i==$libro->stock)
+                                <option value="{{$i}}" selected>{{$i}}</option>
+                            @else
+                                <option value="{{$i}}">{{$i}}</option>
+                            @endif
+                        @endfor
+                    </select>
+                @endif
             </div>
             <button type="submit"
                     class="bg-gradient-to-r from-red-500 to-red-600 text-white w-full py-2 rounded-full font-bold">

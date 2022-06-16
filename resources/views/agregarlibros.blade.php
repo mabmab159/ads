@@ -16,7 +16,8 @@
             </div>
         </form>
         <br>
-        <form method="POST" action="{{route("registrarLibro")}}">
+        <form method="POST" action="{{route("registrarLibro")}}"
+              onsubmit="return confirm('Esta seguro de agregar las copias')">
             @csrf
             <label class="p-3 text-zinc-600">ISBN</label>
             <div class="flex py-4">
@@ -37,7 +38,7 @@
             <label class="p-3 text-zinc-600">Titulo</label>
             <div class="flex py-4">
                 @if(is_null($libro))
-                    <input class="w-full border-b-2 border-b-emerald-500" name="titulo">
+                    <input class="w-full border-b-2 border-b-emerald-500" name="titulo" value="{{old("titulo")}}">
                     @error("titulo")
                     <span class="text-red-500">El campo es obligatorio</span>
                     @enderror
@@ -49,7 +50,7 @@
             <label class="p-3 text-zinc-600">Autor</label>
             <div class="flex py-4">
                 @if(is_null($libro))
-                    <input class="w-full border-b-2 border-b-emerald-500" name="autor">
+                    <input class="w-full border-b-2 border-b-emerald-500" name="autor" value="{{old("autor")}}">
                     @error("autor")
                     <span class="text-red-500">El campo es obligatorio</span>
                     @enderror
@@ -61,7 +62,8 @@
             <label class="p-3 text-zinc-600">Año de publicación</label>
             <div class="flex py-4">
                 @if(is_null($libro))
-                    <input type="number" class="w-full border-b-2 border-b-emerald-500" name="ano_publicacion">
+                    <input type="number" class="w-full border-b-2 border-b-emerald-500" name="ano_publicacion"
+                           value="{{old("ano_publicacion")}}">
                     @error("ano_publicacion")
                     <span class="text-red-500">El campo es obligatorio</span>
                     @enderror
@@ -74,7 +76,7 @@
             <label class="p-3 text-zinc-600">Editorial</label>
             <div class="flex py-4">
                 @if(is_null($libro))
-                    <input class="w-full border-b-2 border-b-emerald-500" name="editorial">
+                    <input class="w-full border-b-2 border-b-emerald-500" name="editorial" value="{{old("editorial")}}">
                     @error("editorial")
                     <span class="text-red-500">El campo es obligatorio</span>
                     @enderror
@@ -86,7 +88,8 @@
             <label class="p-3 text-zinc-600">Numero de edición</label>
             <div class="flex py-4">
                 @if(is_null($libro))
-                    <input type="number" class="w-full border-b-2 border-b-emerald-500" name="numero_edicion">
+                    <input type="number" class="w-full border-b-2 border-b-emerald-500" name="numero_edicion"
+                           value="{{old("numero_edicion")}}">
                     @error("numero_edicion")
                     <span class="text-red-500">El campo es obligatorio</span>
                     @enderror
@@ -98,7 +101,8 @@
             </div>
             <label class="p-3 text-zinc-600">Stock</label>
             <div class="flex py-4">
-                <input type="number" class="w-full border-b-2 border-b-emerald-500" name="stock" min="1">
+                <input type="number" class="w-full border-b-2 border-b-emerald-500" name="stock" min="1"
+                       value="{{old("stock")}}">
                 @error("stock")
                 <span class="text-red-500">El campo es obligatorio</span>
                 @enderror

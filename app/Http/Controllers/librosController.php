@@ -65,7 +65,6 @@ class librosController extends Controller
         return view("agregarlibros")->with("libro", $libro)->with("ISBN", $request->ISBN);
     }
 
-
     public function formularioEliminarLibroISBN(Request $request)
     {
         $request->validate([
@@ -109,4 +108,12 @@ class librosController extends Controller
         return redirect(route("inicio"))->with("libros", libros::paginate(25));
     }
 
+
+    public function eliminarLibro(Request $request)
+    {
+        $libro = libros::all()->where("ISBN", "=", $request->ISBN)->first();
+        $libro->stock = $libro->stock - $request->stock;
+        $libro->save();
+        return redirect(route("inicio"))->with("libros", libros::paginate(25));
+    }
 }

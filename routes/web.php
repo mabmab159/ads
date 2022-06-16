@@ -40,3 +40,4 @@ Route::post("/registrarLibro", [librosController::class, "registrarLibro"])->nam
 
 Route::get("/eliminarLibro", [librosController::class, "formularioEliminarLibro"])->name("formularioEliminarLibro");
 
+Route::post("/eliminarLibro", [librosController::class, "eliminarLibro"])->name("eliminarLibro");
