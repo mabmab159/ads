@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
@@ -33,7 +33,7 @@
                         Inicio - Busqueda de libros
                     </li>
                 </a>
-                @if(auth()->user()->cargo=="recepcionista" || auth()->user()->cargo=="admin")
+                @if(auth()->user()->cargo=="recepcionista")
                     <a href="{{route("listarPrestamos")}}">
                         <li class="border-r-2 border-l-2 border-b-2 border-emerald-500 py-4 text-center hover:bg-emerald-500 hover:text-white">
                             Devolución de libros
