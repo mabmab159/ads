@@ -665,6 +665,9 @@ video {
 .w-6 {
   width: 1.5rem;
 }
+.w-48 {
+  width: 12rem;
+}
 .max-w-xl {
   max-width: 36rem;
 }
@@ -882,6 +885,10 @@ video {
 .tracking-wider {
   letter-spacing: 0.05em;
 }
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -917,10 +924,6 @@ video {
 .text-zinc-600 {
   --tw-text-opacity: 1;
   color: rgb(82 82 91 / var(--tw-text-opacity));
-}
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

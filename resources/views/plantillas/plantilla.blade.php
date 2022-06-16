@@ -33,7 +33,7 @@
                         Inicio - Busqueda de libros
                     </li>
                 </a>
-                @if(auth()->user()->cargo=="recepcionista")
+                @if(auth()->user()->cargo=="recepcionista" || auth()->user()->cargo=="admin")
                     <a href="{{route("listarPrestamos")}}">
                         <li class="border-r-2 border-l-2 border-b-2 border-emerald-500 py-4 text-center hover:bg-emerald-500 hover:text-white">
                             Devolución de libros
@@ -46,12 +46,12 @@
                     </a>
                 @endif
                 @if(auth()->user()->cargo=="admin")
-                    <a href="">
+                    <a href="{{route("formularioLibro")}}">
                         <li class="border-r-2 border-l-2 border-b-2 border-emerald-500 py-4 text-center hover:bg-emerald-500 hover:text-white">
                             Registrar libro
                         </li>
                     </a>
-                    <a href="">
+                    <a href="{{route("formularioEliminarLibro")}}">
                         <li class="border-r-2 border-l-2 border-b-2 border-emerald-500 py-4 text-center hover:bg-emerald-500 hover:text-white">
                             Eliminar libro
                         </li>

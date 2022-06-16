@@ -29,3 +29,12 @@ Route::get("/logout", [login::class, "logout"])->name("logout");
 Route::get("/registrarPrestamo", [prestamosController::class, "formularioPrestamos"])->name("formularioPrestamos");
 
 Route::post("/registrarPrestamo", [prestamosController::class, "registrarPrestamo"])->name("registrarPrestamo");
+
+Route::get("/validarISBN", [librosController::class, "formularioLibroISBN"])->name("formularioLibroISBN");
+
+Route::get("/registrarLibro", [librosController::class, "formularioLibro"])->name("formularioLibro");
+
+Route::post("/registrarLibro", [librosController::class, "registrarLibro"])->name("registrarLibro");
+
+Route::get("/eliminarLibro", [librosController::class, "formularioEliminarLibro"])->name("formularioEliminarLibro");
+

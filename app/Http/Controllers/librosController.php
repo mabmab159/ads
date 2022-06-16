@@ -10,7 +10,6 @@ class librosController extends Controller
 {
     public function filtrarLibros(Request $request)
     {
-        // Agregar campos requeridos
         $request->validate([
             "filtrado" => "required"
         ]);
@@ -51,4 +50,53 @@ class librosController extends Controller
             return view("listadoprestamos")->with("prestamos", prestamos::where("codigo_estudiante", "like", $texto)->paginate(25));
         }
     }
+
+    public function formularioLibro()
+    {
+        return view("agregarlibros")->with("libro", null)->with("ISBN", null);
+    }
+
+    public function formularioLibroISBN(Request $request)
+    {
+        $request->validate([
+            "ISBN" => "required"
+        ]);
+        $libro = libros::all()->where("ISBN", "=", $request->ISBN)->first();
+        return view("agregarlibros")->with("libro", $libro)->with("ISBN", $request->ISBN);
+    }
+
+    public function formularioEliminarLibro()
+    {
+        return view("eliminarlibros");
+    }
+
+    public function registrarLibro(Request $request)
+    {
+        $request->validate([
+            "ISBN" => "required",
+            "titulo" => "required",
+            "autor" => "required",
+            "ano_publicacion" => "required",
+            "editorial" => "required",
+            "numero_edicion" => "required",
+            "stock" => "required",
+        ]);
+        $libro = libros::all()->where("ISBN", "=", $request->ISBN)->first();
+        if (is_null($libro)) {
+            $libro = new libros();
+            $libro->ISBN = $request->ISBN;
+            $libro->titulo = $request->titulo;
+            $libro->autor = $request->autor;
+            $libro->ano_publicacion = $request->ano_publicacion;
+            $libro->editorial = $request->editorial;
+            $libro->numero_edicion = $request->numero_edicion;
+            $libro->stock = $request->stock;
+            $libro->save();
+            return redirect(route("inicio"))->with("libros", libros::paginate(25));
+        }
+        $libro->stock = $libro->stock + $request->stock;
+        $libro->save();
+        return redirect(route("inicio"))->with("libros", libros::paginate(25));
+    }
+
 }
