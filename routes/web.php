@@ -32,6 +32,8 @@ Route::post("/registrarPrestamo", [prestamosController::class, "registrarPrestam
 
 Route::get("/validarISBN", [librosController::class, "formularioLibroISBN"])->name("formularioLibroISBN");
 
+Route::get("/validarEliminarISBN", [librosController::class, "formularioEliminarLibroISBN"])->name("formularioEliminarLibroISBN");
+
 Route::get("/registrarLibro", [librosController::class, "formularioLibro"])->name("formularioLibro");
 
 Route::post("/registrarLibro", [librosController::class, "registrarLibro"])->name("registrarLibro");

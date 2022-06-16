@@ -65,9 +65,19 @@ class librosController extends Controller
         return view("agregarlibros")->with("libro", $libro)->with("ISBN", $request->ISBN);
     }
 
+
+    public function formularioEliminarLibroISBN(Request $request)
+    {
+        $request->validate([
+            "ISBN" => "required"
+        ]);
+        $libro = libros::all()->where("ISBN", "=", $request->ISBN)->first();
+        return view("eliminarlibros")->with("libro", $libro)->with("ISBN", $request->ISBN);
+    }
+
     public function formularioEliminarLibro()
     {
-        return view("eliminarlibros");
+        return view("eliminarlibros")->with("libro", null)->with("ISBN", null);
     }
 
     public function registrarLibro(Request $request)
