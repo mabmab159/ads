@@ -28,7 +28,6 @@ class librosController extends Controller
     public function devolverLibro($id)
     {
         $prestamo = prestamos::all()->where("id", $id)->first();
-        $prestamo->estado = 0;
         $prestamo->delete();
         $libro = libros::all()->where("ISBN", "=", $prestamo->ISBN)->first();
         $libro->stock = $libro->stock + 1;
