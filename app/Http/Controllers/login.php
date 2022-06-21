@@ -18,6 +18,7 @@ class login extends Controller
             $request->session()->regenerate();
             return redirect(route("inicio"))->with("libros", libros::paginate(25));
         }
+        return redirect(route("login"));
     }
 
     public function logout(Request $request)
