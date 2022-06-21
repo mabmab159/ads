@@ -29,7 +29,7 @@ class librosController extends Controller
     {
         $prestamo = prestamos::all()->where("id", $id)->first();
         $prestamo->estado = 0;
-        $prestamo->save();
+        $prestamo->delete();
         $libro = libros::all()->where("ISBN", "=", $prestamo->ISBN)->first();
         $libro->stock = $libro->stock + 1;
         $libro->save();
